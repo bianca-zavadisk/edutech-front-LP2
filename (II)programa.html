@@ -1,0 +1,30 @@
+<canvas width='900' height='500'></canvas>
+
+<script>
+
+	var tela = document.querySelector('canvas');
+	var pincel = tela.getContext('2d');
+
+	pincel.fillStyle = 'lightgrey';
+	pincel.fillRect(0, 0, 900, 500);
+
+	pincel.fillStyle = 'royalblue'
+	pincel.fillRect(0, 0, 300, 500);
+
+	pincel.fillStyle = 'darkred'
+	pincel.fillRect(600, 0, 300, 500);
+
+	pincel.fillStyle = 'yellow'
+	pincel.beginPath();
+	pincel.moveTo(450, 250);
+	pincel.lineTo(300, 500);
+	pincel.lineTo(600, 500);
+
+	pincel.fill();
+
+	pincel.fillStyle = 'purple'
+	pincel.beginPath();
+	pincel.arc(450, 250, 70, 0, 2 * 3.14);
+	pincel.fill();
+
+</script>

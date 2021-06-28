@@ -1,0 +1,57 @@
+<meta charset="UTF-8">
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+	/*
+	Informações:
+	- Em 2015: 50% Chrome, 25% Firefox, 20% Safari, 5% Outros (Opera, IE, etc).
+	- Em 2016: 65% Chrome, 20% Firefox, 13% Safari, 2% Outros (Opera, IE, Edge, etc).
+	*/
+
+	function drawRect(x, y, width, height, color) {
+
+		var screen = document.querySelector('canvas');
+		var pincel = screen.getContext('2d');
+
+        pincel.fillStyle = color;
+        pincel.strokeStyle = 'black';
+
+        pincel.fillRect(x, y, width, height);
+        pincel.strokeRect(x, y, width, height);
+    }
+
+    function drawText(x, y, text) {
+
+    	var screen = document.querySelector('canvas');
+		var pincel = screen.getContext('2d');
+
+        pincel.font = '15px Georgia';
+        pincel.fillStyle = 'black';
+        pincel.fillText(text, x, y);
+    }
+
+    function drawBar(x, y, serie, color, text) {
+
+    	drawText(x, y - 10, text);
+    	
+    	var heightTotal = 0;
+
+    	for(var i = 0; i < serie.length; i++) {
+
+    		var height = serie[i];
+    		drawRect(x, y + heightTotal, 50, height, color[i]);
+    		heightTotal = heightTotal + height;
+    	}
+
+    }
+
+    var class2015 = [50, 25, 20, 5];
+    var class2016 = [65, 20, 13, 2];
+    var color = ['blue', 'green', 'yellow', 'red'];
+
+    drawBar(50, 50, class2015, color, '2015');
+	drawBar(150, 50, class2016, color, '2016');
+
+</script>
